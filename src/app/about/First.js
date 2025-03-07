@@ -7,16 +7,15 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export default function AboutSection({theme}) {
-  // const { theme, systemTheme } = useTheme();
+
   const [isDark, setIsDark] = useState(theme==="dark");
 
-  // useEffect(() => {
-  //   const currentTheme = theme === "system" ? systemTheme : theme;
-  //   setIsDark(currentTheme !== "dark");
-  // }, [theme, systemTheme]);
+  useEffect(()=>{
+    setIsDark(theme==="dark")
+  },[theme])
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div  className="relative w-full overflow-hidden ">
       {/* Shooting Stars Background */}
       <div className="absolute inset-0">
         <div className={`absolute inset-0 ${isDark ? "bg-black" : "bg-gray-100"}`} />
@@ -24,7 +23,7 @@ export default function AboutSection({theme}) {
       </div>
 
       {/* Content */}
-      <div className={`relative flex flex-col md:flex-row items-center justify-between gap-8 p-8 max-w-5xl mx-auto antialiased transition-colors duration-300 `}>
+      <div style={{marginTop:"60px"}} className={`relative flex flex-col md:flex-row items-center justify-between gap-8 p-8 max-w-5xl mx-auto antialiased transition-colors duration-300 `}>
         {/* Left Content */}
         <div className=" w-full flex-1 space-y-4 relative z-10">
           <p className="text-lg text-gray-800">ABOUT US</p>
@@ -35,10 +34,18 @@ export default function AboutSection({theme}) {
           At Everything Talent, we help you launch your recruitment into a new dimension.
           </p>
           <div className="relative inline-block group">
-            <Button className="px-6 py-3 text-lg font-medium relative z-10 bg-blue-500 text-white rounded-lg">
-              Start For Free Today &rarr;
-            </Button>
-            <div className="absolute inset-0 border-2 border-transparent rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <button
+  className={`px-6 py-3 text-lg font-medium relative z-10 rounded-lg transition-all duration-300 ease-in-out hover:scale-105 ${
+    isDark
+      ? "bg-gray-100 text-black" 
+      : "bg-black text-white" 
+  }`}
+>
+  Start For Free Today &rarr;
+</button>
+
+            
+            {/* <div className="absolute inset-0 border-2 border-transparent rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-50 group-hover:scale-105"></div> */}
           </div>
         </div>
 

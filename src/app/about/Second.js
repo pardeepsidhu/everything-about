@@ -111,8 +111,8 @@ const ContentSection = ({ section }) => {
     >
       <div  style={{textAlign:"justify"}} className="flex-1 space-y-4">
         <h2 className="text-3xl font-bold">{section.title}</h2>
-        <p className="text-lg font-medium text-blue-600 dark:text-blue-400">{section.subtitle}</p>
-        <p className="text-sm">{section.description}</p>
+        <h2 className="text-lg font-medium text-blue-600 dark:text-blue-400">{section.subtitle}</h2>
+        <h2 className="text-sm">{section.description}</h2>
         <ul className="list-disc pl-5 space-y-2">
           {section.points.map((point, index) => (
             <li key={index}>{point}</li>
@@ -143,7 +143,7 @@ const Dock = ({ activeSection, setActiveSection ,theme}) => {
             className={` cursor-pointer px-4 py-2 text-sm font-semibold rounded-lg transition-colors duration-300  ${theme === "dark" ? 
                activeSection === section.id ? "bg-black text-white" : "bg-gray-800 text-black"
                :  activeSection === section.id ? "bg-blue-600 text-white" : "bg-gray-200 text-black"
-             }`}
+             } transform ease-in-out  hover:scale-105 `}
           >
             {section.subtitle}
           </button>

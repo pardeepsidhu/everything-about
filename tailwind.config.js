@@ -12,6 +12,9 @@ module.exports = {
   theme: {
     // rest of the code
   },
+  theme: {
+    extend: {},
+  },
   plugins: [addVariablesForColors],
 };
 
