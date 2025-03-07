@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { WarpBackground } from "@/components/magicui/warp-background";
 import { cn } from "@/lib/utils";
 import { Users, Lightbulb, Zap, BarChart, Star, Handshake } from "lucide-react"; // Icons
+import { useEffect, useState } from "react";
 
 const thriveCards = [
   { title: "Community-Driven", description: "We build strong connections and foster collaboration within our team.", icon: Users },
@@ -17,7 +18,10 @@ const thriveCards = [
 ];
 
 const HowWeThrive = ({ theme }) => {
-  const isDark = theme === "dark";
+  const [isDark,setIsDark]=useState(theme === "dark")
+  useEffect(()=>{
+    setIsDark(theme==="dark")
+  },[theme])
   return (
     <WarpBackground className={cn(
       "w-full  border-0 rounded-none flex items-center justify-between px-6 md:px-16 py-20 transition-all duration-500",
